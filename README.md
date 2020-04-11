@@ -12,27 +12,27 @@ from interface.
 
 ## Usefull Commands
 
-Start the docker stack psql and prod-test servers of odoo
-`$ sudo docker-compose up -d`
+* Start the docker stack psql and prod-test servers of odoo  
+`$ sudo docker-compose up -d`  
 
-List running docker containers
-`$ sudo docker ps`
+* List running docker containers  
+`$ sudo docker ps`  
 
 ![Alt text](src/img/containers.jpg?raw=true "Container List")
 
-Stop individual docker container (restarts with new settings)
-`$ sudo docker stop docker_name`
+* Stop individual docker container (restarts with new settings)  
+`$ sudo docker stop docker_name`  
 
-Connect to container to execute some bash magick
-`$ sudo docker exec -ti docker_name bash`
+* Connect to container to execute some bash magick  
+`$ sudo docker exec -ti docker_name bash`  
 
-Logging odoo service in docker container
-`$ sudo docker exec -ti docker_name bash`
-`$ tail -f 1000 /var/log/odoo/odoo.log`
+* Logging odoo service in docker container  
+`$ sudo docker exec -ti docker_name bash`  
+`$ tail -f 1000 /var/log/odoo/odoo.log`  
 
-Connecting to psql image in this conf and logging to databases
-`$ sudo docker exec -ti docker_name bash`
-`$ psql template1 odoo`
+* Connecting to psql image in this conf and logging to databases  
+`$ sudo docker exec -ti docker_name bash`  
+`$ psql template1 odoo`  
 
 
 
