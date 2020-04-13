@@ -6,6 +6,7 @@ Example template for odoo deployment with docker
 Latest version(not necessary):  
 * [installing docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)  
 * [installing docker compose](https://docs.docker.com/compose/install/)  
+
 Older version apt-get:  
 * [installing docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
 * `$ sudo apt-get install docker-compose`  
