@@ -9,6 +9,9 @@ services:
       - "8069:8069"
     volumes:
       - odoo-web-data:/var/lib/odoo
+      - logs:/var/log/odoo/
+      - addons_zip:/mnt/addons-zip
+      - addons_links:/mnt/addons-link
       - ./config:/etc/odoo
       - ./odoo_addons:/mnt/extra-addons
   web_test:
@@ -20,6 +23,9 @@ services:
       - "9069:8069"
     volumes:
       - odoo-web-data:/var/lib/odoo
+      - logs_test:/var/log/odoo/
+      - addons_zip_test:/mnt/addons-zip
+      - addons_links_test:/mnt/addons-link
       - ./config_test:/etc/odoo
       - ./odoo_test_addons:/mnt/extra-addons
   db:
@@ -35,3 +41,9 @@ services:
 volumes:
   odoo-web-data:
   odoo-db-data:
+  logs:
+  logs_test:
+  addons_zip:
+  addons_links:
+  addons_zip_test:
+  addons_links_test:

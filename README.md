@@ -19,8 +19,13 @@ from interface.
 * To fully incorporate the idea symlinks created inside the docker have to be transferred  
 into odoo_addons folder somehow. Symlinks are being created by maintenance module when  
 update is triggered from ui. Posibbly the module can be changed, but the point is to make  
+Possible solution:  
+[Docker internal named volumes](https://devopsheaven.com/docker/docker-compose/volumes/2018/01/16/volumes-in-docker-compose.html)  
+
 as much as posible using docker and shell scripts.  
 * Find a way to shut down docker from ui  
+
+
 
 ## Usefull Commands
 
