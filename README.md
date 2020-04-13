@@ -67,7 +67,7 @@ Root:
 `$ cd docker_odoo`  
 `$ sudo docker-compose up -d`  
 
-This is it you deployed everything and everything works. Go to http://hostname:8069
+This is it you deployed everything and everything works. Go to http://hostname:8069  
 test_maintenance modules in addon folder have to be replaced with your companys maintenance module
 
 ## Links
