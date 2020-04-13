@@ -3,8 +3,11 @@ Example template for odoo deployment with docker
 
 ## Install Docker
 
-Find ze best way to install now it is pretty complicated (depends if you need the latest version)  
-* [installing](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)  
+Latest version(not necessary):  
+* [installing docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)  
+* [installing docker compose](https://docs.docker.com/compose/install/)  
+Older version apt-get:  
+* `$ sudo apt-get install apt-transport-https ca-certificates curl software-properties-common docker-ce`  
 * `$ sudo apt-get install docker-compose`  
 
 ## General idea
@@ -21,12 +24,13 @@ into odoo_addons folder somehow. Symlinks are being created by maintenance modul
 update is triggered from ui. Posibbly the module can be changed, but the point is to make  
 as much as posible using docker and shell scripts.  
 
-Possible solution:  
+Solved:  
 [Docker internal named volumes](https://devopsheaven.com/docker/docker-compose/volumes/2018/01/16/volumes-in-docker-compose.html)  
 
 * Find a way to shut down docker from ui  
 
-
+Solved:  
+`$ service odoo restart` can be used inside of container
 
 ## Usefull Commands
 
@@ -42,7 +46,10 @@ Possible solution:
 `$ sudo docker stop docker_name`  
 
 * Connect to container to execute some bash magick  
+Main user:
 `$ sudo docker exec -ti docker_name bash`  
+Root:
+`$ sudo docker exec -ti -u 0 docker_name bash`  
 
 * Logging odoo service in docker container  
 `$ sudo docker exec -ti docker_name bash`  
@@ -51,6 +58,17 @@ Possible solution:
 * Connecting to psql image in this conf and logging to databases  
 `$ sudo docker exec -ti docker_name bash`  
 `$ psql template1 odoo`  
+
+## Easy instalation procedure on new server
+
+`$ sudo apt-get install apt-transport-https ca-certificates curl software-properties-common docker-ce`  
+`$ sudo apt-get install docker-compose`  
+`$ git clone https://github.com/Ulumanshu/docker_odoo.git`  
+`$ cd docker_odoo`  
+`$ sudo docker-compose up -d`  
+
+This is it you deployed everything and everything works. Go to http://hostname:8069
+test_maintenance modules in addon folder have to be replaced with your companys maintenance module
 
 ## Links
 
