@@ -9,7 +9,6 @@ services:
       - "8069:8069"
     volumes:
       - odoo-web-data:/var/lib/odoo
-      - logs:/var/log/odoo/
       - addons_zip:/mnt/addons-zip
       - addons_links:/mnt/addons-link
       - ./config:/etc/odoo
@@ -17,19 +16,18 @@ services:
   web_test:
     image: odoo:13.0
     depends_on:
-      - db
+      - db_test
     restart: unless-stopped
     ports:
       - "9069:8069"
     volumes:
-      - odoo-web-data:/var/lib/odoo
-      - logs_test:/var/log/odoo/
+      - odoo-web-data_test:/var/lib/odoo
       - addons_zip_test:/mnt/addons-zip
       - addons_links_test:/mnt/addons-link
       - ./config_test:/etc/odoo
       - ./odoo_test_addons:/mnt/extra-addons
   db:
-    image: postgres:10
+    image: postgres:12
     restart: unless-stopped
     environment:
       - POSTGRES_DB=postgres
@@ -38,11 +36,21 @@ services:
       - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
       - odoo-db-data:/var/lib/postgresql/data/pgdata
+  db_test:
+    image: postgres:12
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - odoo-db-data_test:/var/lib/postgresql/data/pgdata
 volumes:
   odoo-web-data:
+  odoo-web-data_test:
   odoo-db-data:
-  logs:
-  logs_test:
+  odoo-db-data_test:
   addons_zip:
   addons_links:
   addons_zip_test:
