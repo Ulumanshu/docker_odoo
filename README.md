@@ -6,8 +6,9 @@ Example template for odoo deployment with docker
 Latest version(not necessary):  
 * [installing docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)  
 * [installing docker compose](https://docs.docker.com/compose/install/)  
+
 Older version apt-get:  
-* `$ sudo apt-get install apt-transport-https ca-certificates curl software-properties-common docker-ce`  
+* [installing docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
 * `$ sudo apt-get install docker-compose`  
 
 ## General idea
@@ -61,7 +62,13 @@ Root:
 
 ## Easy instalation procedure on new server
 
-`$ sudo apt-get install apt-transport-https ca-certificates curl software-properties-common docker-ce`  
+`$ sudo apt-get install apt-transport-https ca-certificates curl software-properties-common gnupg`  
+`$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`  
+`$ sudo apt-key fingerprint 0EBFCD88`  
+`$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`  
+`$ sudo apt update`  
+`$ sudo apt install docker-ce`  
+`$ sudo usermod -aG docker $USER`  
 `$ sudo apt-get install docker-compose`  
 `$ git clone https://github.com/Ulumanshu/docker_odoo.git`  
 `$ cd docker_odoo`  
